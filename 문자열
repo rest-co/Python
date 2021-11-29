@@ -1,0 +1,13 @@
+문자열 검색
+브루트 포스법: 선형 검색을 단순하게 확장한 알고리즘, 단순법, 이미 검사한 위치를 기억하지 못해 효율이 좋지 않음
+def bf_match(txt:str, pat:str)->int:
+    pt=0
+    pp=0
+    while pt!=len(txt) and pp!=len(pat):
+        if txt[pt] ==pat[pp]:
+            pt+=1
+            pp+=1
+        else:
+            pt=pt-pp+1
+            pp=0
+    return pt-pp if pp==len(pat) else -1
